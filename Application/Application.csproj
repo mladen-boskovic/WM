@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ProductCommands\IGetProductCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IGetProductsCommand.cs" />
+    <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

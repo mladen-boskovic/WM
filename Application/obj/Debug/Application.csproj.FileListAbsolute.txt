@@ -1,0 +1,5 @@
+C:\Users\mlade\Documents\wm\Application\bin\Debug\Application.dll
+C:\Users\mlade\Documents\wm\Application\bin\Debug\Application.pdb
+C:\Users\mlade\Documents\wm\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\mlade\Documents\wm\Application\obj\Debug\Application.dll
+C:\Users\mlade\Documents\wm\Application\obj\Debug\Application.pdb

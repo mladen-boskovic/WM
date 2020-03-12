@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="CATEGORY_ID" />
+    </Key>
+    <Property Name="CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MANUFACTURER">
+    <Key>
+      <PropertyRef Name="MANUFACTURER_ID" />
+    </Key>
+    <Property Name="MANUFACTURER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="PRICE" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
+    <Property Name="MANUFACTURER_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT_SUPPLIER">
+    <Key>
+      <PropertyRef Name="PRODUCT_SUPPLIER_ID" />
+    </Key>
+    <Property Name="PRODUCT_SUPPLIER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="int" Nullable="false" />
+    <Property Name="SUPPLIER_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUPPLIER">
+    <Key>
+      <PropertyRef Name="SUPPLIER_ID" />
+    </Key>
+    <Property Name="SUPPLIER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__PRODUCT__CATEGOR__2E1BDC42">
+    <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORY">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT__MANUFAC__2F10007B">
+    <End Role="MANUFACTURER" Type="Self.MANUFACTURER" Multiplicity="1" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MANUFACTURER">
+        <PropertyRef Name="MANUFACTURER_ID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="MANUFACTURER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_S__PRODU__32E0915F">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="PRODUCT_SUPPLIER" Type="Self.PRODUCT_SUPPLIER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Principal>
+      <Dependent Role="PRODUCT_SUPPLIER">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCT_S__SUPPL__33D4B598">
+    <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+    <End Role="PRODUCT_SUPPLIER" Type="Self.PRODUCT_SUPPLIER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPPLIER">
+        <PropertyRef Name="SUPPLIER_ID" />
+      </Principal>
+      <Dependent Role="PRODUCT_SUPPLIER">
+        <PropertyRef Name="SUPPLIER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WMDBModelStoreContainer">
+    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MANUFACTURER" EntityType="Self.MANUFACTURER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT_SUPPLIER" EntityType="Self.PRODUCT_SUPPLIER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PRODUCT__CATEGOR__2E1BDC42" Association="Self.FK__PRODUCT__CATEGOR__2E1BDC42">
+      <End Role="CATEGORY" EntitySet="CATEGORY" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT__MANUFAC__2F10007B" Association="Self.FK__PRODUCT__MANUFAC__2F10007B">
+      <End Role="MANUFACTURER" EntitySet="MANUFACTURER" />
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_S__PRODU__32E0915F" Association="Self.FK__PRODUCT_S__PRODU__32E0915F">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="PRODUCT_SUPPLIER" EntitySet="PRODUCT_SUPPLIER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCT_S__SUPPL__33D4B598" Association="Self.FK__PRODUCT_S__SUPPL__33D4B598">
+      <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+      <End Role="PRODUCT_SUPPLIER" EntitySet="PRODUCT_SUPPLIER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

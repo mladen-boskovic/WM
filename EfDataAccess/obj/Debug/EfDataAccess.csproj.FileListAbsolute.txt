@@ -1,0 +1,11 @@
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EfDataAccess.dll.config
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EfDataAccess.dll
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EfDataAccess.pdb
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\mlade\Documents\wm\EfDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mlade\Documents\wm\EfDataAccess\obj\Debug\EfDataAccess.csprojAssemblyReference.cache
+C:\Users\mlade\Documents\wm\EfDataAccess\obj\Debug\EfDataAccess.csproj.CopyComplete
+C:\Users\mlade\Documents\wm\EfDataAccess\obj\Debug\EfDataAccess.dll
+C:\Users\mlade\Documents\wm\EfDataAccess\obj\Debug\EfDataAccess.pdb

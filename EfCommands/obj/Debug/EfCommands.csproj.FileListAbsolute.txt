@@ -1,0 +1,16 @@
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfCommands.dll.config
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfCommands.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfCommands.pdb
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\Application.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfDataAccess.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EntityFramework.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\Application.pdb
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfDataAccess.pdb
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EfDataAccess.dll.config
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EntityFramework.xml
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.csprojAssemblyReference.cache
+C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.csproj.CopyComplete
+C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.dll
+C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.pdb
