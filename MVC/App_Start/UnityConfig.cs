@@ -1,5 +1,11 @@
+using Application.Commands.CategoryCommands;
+using Application.Commands.ManufacturerCommands;
 using Application.Commands.ProductCommands;
+using Application.Commands.SupplierCommands;
+using EfCommands.CategoryCommands;
+using EfCommands.ManufacturerCommands;
 using EfCommands.ProductCommands;
+using EfCommands.SupplierCommands;
 using EfDataAccess;
 using System;
 using System.Data;
@@ -59,6 +65,11 @@ namespace MVC
 
             container.RegisterType<IGetProductCommand, EfGetProductCommand>();
             container.RegisterType<IGetProductsCommand, EfGetProductsCommand>();
+            container.RegisterType<IAddProductCommand, EfAddProductCommand>();
+
+            container.RegisterType<IGetCategoriesCommand, EfGetCategoriesCommand>();
+            container.RegisterType<IGetManufacturersCommand, EfGetManufacturersCommand>();
+            container.RegisterType<IGetSuppliersCommand, EfGetSuppliersCommand>();
         }
     }
 }

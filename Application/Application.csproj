@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,9 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CategoryCommands\IGetCategoriesCommand.cs" />
+    <Compile Include="Commands\ManufacturerCommands\IGetManufacturersCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IAddProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductsCommand.cs" />
+    <Compile Include="Commands\SupplierCommands\IGetSuppliersCommand.cs" />
+    <Compile Include="DTOs\CategoryDto.cs" />
+    <Compile Include="DTOs\InsertUpdateDTOs\InsertUpdateProductDto.cs" />
+    <Compile Include="DTOs\ManufacturerDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="DTOs\SupplierDto.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

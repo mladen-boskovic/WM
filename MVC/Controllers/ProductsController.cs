@@ -1,4 +1,8 @@
-﻿using Application.Commands.ProductCommands;
+﻿using Application.Commands.CategoryCommands;
+using Application.Commands.ManufacturerCommands;
+using Application.Commands.ProductCommands;
+using Application.Commands.SupplierCommands;
+using Application.DTOs.InsertUpdateDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +15,20 @@ namespace MVC.Controllers
     {
         private readonly IGetProductCommand _getProduct;
         private readonly IGetProductsCommand _getProducts;
+        private readonly IAddProductCommand _addProduct;
 
-        public ProductsController(IGetProductCommand getProduct, IGetProductsCommand getProducts)
+        private readonly IGetCategoriesCommand _getCategories;
+        private readonly IGetManufacturersCommand _getManufacturers;
+        private readonly IGetSuppliersCommand _getSuppliers;
+
+        public ProductsController(IGetProductCommand getProduct, IGetProductsCommand getProducts, IAddProductCommand addProduct, IGetCategoriesCommand getCategories, IGetManufacturersCommand getManufacturers, IGetSuppliersCommand getSuppliers)
         {
             _getProduct = getProduct;
             _getProducts = getProducts;
+            _addProduct = addProduct;
+            _getCategories = getCategories;
+            _getManufacturers = getManufacturers;
+            _getSuppliers = getSuppliers;
         }
 
         // GET: Products
@@ -35,21 +48,35 @@ namespace MVC.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+            ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+            ViewBag.Suppliers = new SelectList(_getSuppliers.Execute(), "SupplierId", "Name");
             return View();
         }
 
         // POST: Products/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(InsertUpdateProductDto product)
         {
             try
             {
                 // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+                    ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+                    ViewBag.Suppliers = new SelectList(_getSuppliers.Execute(), "SupplierId", "Name");
+                    return View(product);
+                }
 
+                _addProduct.Execute(product);
                 return RedirectToAction("Index");
             }
             catch
             {
+                ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+                ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+                ViewBag.Suppliers = new SelectList(_getSuppliers.Execute(), "SupplierId", "Name");
                 return View();
             }
         }

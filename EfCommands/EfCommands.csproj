@@ -49,9 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEfCommand.cs" />
+    <Compile Include="CategoryCommands\EfGetCategoriesCommand.cs" />
+    <Compile Include="ManufacturerCommands\EfGetManufacturersCommand.cs" />
+    <Compile Include="ProductCommands\EfAddProductCommand.cs" />
     <Compile Include="ProductCommands\EfGetProductCommand.cs" />
     <Compile Include="ProductCommands\EfGetProductsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplierCommands\EfGetSuppliersCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj">
@@ -67,5 +71,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
