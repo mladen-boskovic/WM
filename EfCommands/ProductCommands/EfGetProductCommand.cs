@@ -34,8 +34,8 @@ namespace EfCommands.ProductCommands
                 CategoryName = product.CATEGORY.NAME,
                 ManufacturerId = product.MANUFACTURER_ID,
                 ManufacturerName = product.MANUFACTURER.NAME,
-                SupplierIds = product.PRODUCT_SUPPLIER.Select(ps => ps.SUPPLIER_ID),
-                SupplierNames = product.PRODUCT_SUPPLIER.Select(ps => ps.SUPPLIER.NAME)
+                SupplierIds = product.PRODUCT_SUPPLIER.Select(ps => ps.SUPPLIER_ID).ToList(),
+                SupplierNames = product.PRODUCT_SUPPLIER.Select(ps => ps.SUPPLIER.NAME).ToList()
             };
         }
     }
