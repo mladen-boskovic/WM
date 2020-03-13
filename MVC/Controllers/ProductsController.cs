@@ -10,23 +10,26 @@ namespace MVC.Controllers
     public class ProductsController : Controller
     {
         private readonly IGetProductCommand _getProduct;
+        private readonly IGetProductsCommand _getProducts;
 
-        public ProductsController(IGetProductCommand getProduct)
+        public ProductsController(IGetProductCommand getProduct, IGetProductsCommand getProducts)
         {
             _getProduct = getProduct;
+            _getProducts = getProducts;
         }
 
         // GET: Products
         public ActionResult Index()
         {
-            return View();
+            var products = _getProducts.Execute();
+            return View(products);
         }
 
         // GET: Products/Details/5
         public ActionResult Details(int id)
         {
-            var product = _getProduct.Execute(1);
-            return View();
+            var product = _getProduct.Execute(id);
+            return View(product);
         }
 
         // GET: Products/Create

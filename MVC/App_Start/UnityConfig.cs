@@ -58,6 +58,7 @@ namespace MVC
             container.RegisterType<DbContext, WmContext>();
 
             container.RegisterType<IGetProductCommand, EfGetProductCommand>();
+            container.RegisterType<IGetProductsCommand, EfGetProductsCommand>();
         }
     }
 }

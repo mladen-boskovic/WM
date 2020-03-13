@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BaseEfCommand.cs" />
     <Compile Include="ProductCommands\EfGetProductCommand.cs" />
+    <Compile Include="ProductCommands\EfGetProductsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,11 +18,6 @@ namespace EfCommands.ProductCommands
         public ProductDto Execute(int request)
         {
             var product = Context.PRODUCT.Find(request);
-            
-            if(product == null)
-            {
-                return null;
-            }
 
             return new ProductDto
             {
