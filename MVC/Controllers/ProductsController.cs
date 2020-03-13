@@ -46,6 +46,10 @@ namespace MVC.Controllers
         public ActionResult Details(int id)
         {
             var product = _getProduct.Execute(id);
+            if(product == null)
+            {
+                return RedirectToAction("Index");
+            }
             return View(product);
         }
 
@@ -64,7 +68,6 @@ namespace MVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
                 if (!ModelState.IsValid)
                 {
                     ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
@@ -89,6 +92,10 @@ namespace MVC.Controllers
         public ActionResult Edit(int id)
         {
             var product = _getInsertUpdateProduct.Execute(id);
+            if(product == null)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
             ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
             ViewBag.Suppliers = _getSuppliers.Execute();
@@ -102,7 +109,6 @@ namespace MVC.Controllers
         {
             try
             {
-                // TODO: Add update logic here
                 _editProduct.Execute(product);
                 return RedirectToAction("Index");
             }
@@ -112,28 +118,6 @@ namespace MVC.Controllers
                 ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
                 ViewBag.Suppliers = _getSuppliers.Execute();
                 return View(product);
-            }
-        }
-
-        // GET: Products/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Products/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
             }
         }
     }
