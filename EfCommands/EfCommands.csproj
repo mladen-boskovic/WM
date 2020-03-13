@@ -52,6 +52,9 @@
     <Compile Include="CategoryCommands\EfGetCategoriesCommand.cs" />
     <Compile Include="ManufacturerCommands\EfGetManufacturersCommand.cs" />
     <Compile Include="ProductCommands\EfAddProductCommand.cs" />
+    <Compile Include="ProductCommands\EfDeleteProductSuppliersCommand.cs" />
+    <Compile Include="ProductCommands\EfEditProductCommand.cs" />
+    <Compile Include="ProductCommands\EfGetInsertUpdateProductCommand.cs" />
     <Compile Include="ProductCommands\EfGetProductCommand.cs" />
     <Compile Include="ProductCommands\EfGetProductsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

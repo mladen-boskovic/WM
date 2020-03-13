@@ -64,8 +64,11 @@ namespace MVC
             container.RegisterType<DbContext, WmContext>();
 
             container.RegisterType<IGetProductCommand, EfGetProductCommand>();
+            container.RegisterType<IGetInsertUpdateProductCommand, EfGetInsertUpdateProductCommand>();
             container.RegisterType<IGetProductsCommand, EfGetProductsCommand>();
             container.RegisterType<IAddProductCommand, EfAddProductCommand>();
+            container.RegisterType<IEditProductCommand, EfEditProductCommand>();
+            container.RegisterType<IDeleteProductSuppliersCommand, EfDeleteProductSuppliersCommand>();
 
             container.RegisterType<IGetCategoriesCommand, EfGetCategoriesCommand>();
             container.RegisterType<IGetManufacturersCommand, EfGetManufacturersCommand>();

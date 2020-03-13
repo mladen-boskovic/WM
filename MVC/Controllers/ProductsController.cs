@@ -14,18 +14,22 @@ namespace MVC.Controllers
     public class ProductsController : Controller
     {
         private readonly IGetProductCommand _getProduct;
+        private readonly IGetInsertUpdateProductCommand _getInsertUpdateProduct;
         private readonly IGetProductsCommand _getProducts;
         private readonly IAddProductCommand _addProduct;
+        private readonly IEditProductCommand _editProduct;
 
         private readonly IGetCategoriesCommand _getCategories;
         private readonly IGetManufacturersCommand _getManufacturers;
         private readonly IGetSuppliersCommand _getSuppliers;
 
-        public ProductsController(IGetProductCommand getProduct, IGetProductsCommand getProducts, IAddProductCommand addProduct, IGetCategoriesCommand getCategories, IGetManufacturersCommand getManufacturers, IGetSuppliersCommand getSuppliers)
+        public ProductsController(IGetProductCommand getProduct, IGetInsertUpdateProductCommand getInsertUpdateProduct, IGetProductsCommand getProducts, IAddProductCommand addProduct, IEditProductCommand editProduct, IGetCategoriesCommand getCategories, IGetManufacturersCommand getManufacturers, IGetSuppliersCommand getSuppliers)
         {
             _getProduct = getProduct;
+            _getInsertUpdateProduct = getInsertUpdateProduct;
             _getProducts = getProducts;
             _addProduct = addProduct;
+            _editProduct = editProduct;
             _getCategories = getCategories;
             _getManufacturers = getManufacturers;
             _getSuppliers = getSuppliers;
@@ -84,22 +88,30 @@ namespace MVC.Controllers
         // GET: Products/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var product = _getInsertUpdateProduct.Execute(id);
+            ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+            ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+            ViewBag.Suppliers = _getSuppliers.Execute();
+
+            return View(product);
         }
 
         // POST: Products/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(InsertUpdateProductDto product)
         {
             try
             {
                 // TODO: Add update logic here
-
+                _editProduct.Execute(product);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+                ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+                ViewBag.Suppliers = _getSuppliers.Execute();
+                return View(product);
             }
         }
 

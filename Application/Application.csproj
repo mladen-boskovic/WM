@@ -45,6 +45,9 @@
     <Compile Include="Commands\CategoryCommands\IGetCategoriesCommand.cs" />
     <Compile Include="Commands\ManufacturerCommands\IGetManufacturersCommand.cs" />
     <Compile Include="Commands\ProductCommands\IAddProductCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IDeleteProductSuppliersCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IEditProductCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IGetInsertUpdateProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductsCommand.cs" />
     <Compile Include="Commands\SupplierCommands\IGetSuppliersCommand.cs" />
