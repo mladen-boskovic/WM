@@ -1,0 +1,38 @@
+[
+  {
+    "ProductId": 1,
+    "Name": "First",
+    "Description": "First d",
+    "Price": 46.00,
+    "CategoryId": 1,
+    "CategoryName": "First c",
+    "ManufacturerId": 1,
+    "ManufacturerName": "First m",
+    "SupplierNames": [
+      "First",
+      "Second"
+    ],
+    "SupplierIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "ProductId": 2,
+    "Name": "Second",
+    "Description": "Second d",
+    "Price": 81.99,
+    "CategoryId": 2,
+    "CategoryName": "Second",
+    "ManufacturerId": 2,
+    "ManufacturerName": "Second",
+    "SupplierNames": [
+      "Second",
+      "Third"
+    ],
+    "SupplierIds": [
+      2,
+      3
+    ]
+  }
+]

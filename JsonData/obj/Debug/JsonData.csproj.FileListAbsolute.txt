@@ -1,0 +1,5 @@
+C:\Users\mlade\Documents\wm\JsonData\bin\Debug\JsonData.dll
+C:\Users\mlade\Documents\wm\JsonData\bin\Debug\JsonData.pdb
+C:\Users\mlade\Documents\wm\JsonData\obj\Debug\JsonData.csprojAssemblyReference.cache
+C:\Users\mlade\Documents\wm\JsonData\obj\Debug\JsonData.dll
+C:\Users\mlade\Documents\wm\JsonData\obj\Debug\JsonData.pdb

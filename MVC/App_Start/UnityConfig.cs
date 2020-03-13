@@ -73,6 +73,8 @@ namespace MVC
             container.RegisterType<IGetCategoriesCommand, EfGetCategoriesCommand>();
             container.RegisterType<IGetManufacturersCommand, EfGetManufacturersCommand>();
             container.RegisterType<IGetSuppliersCommand, EfGetSuppliersCommand>();
+
+            container.RegisterType<IGetProductsFromJsonCommand, EfGetProductsFromJsonCommand>();
         }
     }
 }

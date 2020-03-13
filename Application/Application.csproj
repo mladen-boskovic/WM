@@ -50,6 +50,7 @@
     <Compile Include="Commands\ProductCommands\IGetInsertUpdateProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductCommand.cs" />
     <Compile Include="Commands\ProductCommands\IGetProductsCommand.cs" />
+    <Compile Include="Commands\ProductCommands\IGetProductsFromJsonCommand.cs" />
     <Compile Include="Commands\SupplierCommands\IGetSuppliersCommand.cs" />
     <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\InsertUpdateDTOs\InsertUpdateProductDto.cs" />

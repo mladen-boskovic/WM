@@ -24,7 +24,9 @@ namespace MVC.Controllers
         private readonly IGetManufacturersCommand _getManufacturers;
         private readonly IGetSuppliersCommand _getSuppliers;
 
-        public ProductsController(IGetProductCommand getProduct, IGetInsertUpdateProductCommand getInsertUpdateProduct, IGetProductsCommand getProducts, IAddProductCommand addProduct, IEditProductCommand editProduct, IGetCategoriesCommand getCategories, IGetManufacturersCommand getManufacturers, IGetSuppliersCommand getSuppliers)
+        private readonly IGetProductsFromJsonCommand _getProductsFromJson;
+
+        public ProductsController(IGetProductCommand getProduct, IGetInsertUpdateProductCommand getInsertUpdateProduct, IGetProductsCommand getProducts, IAddProductCommand addProduct, IEditProductCommand editProduct, IGetCategoriesCommand getCategories, IGetManufacturersCommand getManufacturers, IGetSuppliersCommand getSuppliers, IGetProductsFromJsonCommand getProductsFromJson)
         {
             _getProduct = getProduct;
             _getInsertUpdateProduct = getInsertUpdateProduct;
@@ -34,12 +36,19 @@ namespace MVC.Controllers
             _getCategories = getCategories;
             _getManufacturers = getManufacturers;
             _getSuppliers = getSuppliers;
+            _getProductsFromJson = getProductsFromJson;
         }
 
         // GET: Products
         public ActionResult Index()
         {
             var products = _getProducts.Execute();
+            return View(products);
+        }
+
+        public ActionResult IndexFromJson()
+        {
+            var products = _getProductsFromJson.Execute();
             return View(products);
         }
 

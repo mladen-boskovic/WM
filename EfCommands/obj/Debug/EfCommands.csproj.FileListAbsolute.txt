@@ -14,3 +14,5 @@ C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.csprojAssemblyRefere
 C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.csproj.CopyComplete
 C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.dll
 C:\Users\mlade\Documents\wm\EfCommands\obj\Debug\EfCommands.pdb
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mlade\Documents\wm\EfCommands\bin\Debug\Newtonsoft.Json.xml
