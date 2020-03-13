@@ -29,6 +29,10 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+        @if (TempData["error"] != null)
+        {
+            <h3 class="text-danger">@TempData["error"]</h3>
+        }
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

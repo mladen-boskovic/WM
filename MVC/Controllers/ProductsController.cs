@@ -3,6 +3,7 @@ using Application.Commands.ManufacturerCommands;
 using Application.Commands.ProductCommands;
 using Application.Commands.SupplierCommands;
 using Application.DTOs.InsertUpdateDTOs;
+using Application.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,12 +80,21 @@ namespace MVC.Controllers
                 _addProduct.Execute(product);
                 return RedirectToAction("Index");
             }
+            catch (EntityAlreadyExistsException e)
+            {
+                ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+                ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+                ViewBag.Suppliers = new SelectList(_getSuppliers.Execute(), "SupplierId", "Name");
+                TempData["error"] = e.Message;
+                return View(product);
+            }
             catch
             {
                 ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
                 ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
                 ViewBag.Suppliers = new SelectList(_getSuppliers.Execute(), "SupplierId", "Name");
-                return View();
+                TempData["error"] = "An error has occured";
+                return View(product);
             }
         }
 
@@ -112,11 +122,20 @@ namespace MVC.Controllers
                 _editProduct.Execute(product);
                 return RedirectToAction("Index");
             }
-            catch(Exception e)
+            catch (EntityAlreadyExistsException e)
             {
                 ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
                 ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
                 ViewBag.Suppliers = _getSuppliers.Execute();
+                TempData["error"] = e.Message;
+                return View(product);
+            }
+            catch
+            {
+                ViewBag.Manufacturers = new SelectList(_getManufacturers.Execute(), "ManufacturerId", "Name");
+                ViewBag.Categories = new SelectList(_getCategories.Execute(), "CategoryId", "Name");
+                ViewBag.Suppliers = _getSuppliers.Execute();
+                TempData["error"] = "An error has occured";
                 return View(product);
             }
         }

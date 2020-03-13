@@ -1,5 +1,6 @@
 ﻿using Application.Commands.ProductCommands;
 using Application.DTOs.InsertUpdateDTOs;
+using Application.Exceptions;
 using EfDataAccess;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,11 @@ namespace EfCommands.ProductCommands
 
         public void Execute(InsertUpdateProductDto request)
         {
+            if(Context.PRODUCT.Any(p => p.NAME.Trim().ToLower() == request.Name.Trim().ToLower()))
+            {
+                throw new EntityAlreadyExistsException("Product");
+            }
+
             Context.PRODUCT.Add(new PRODUCT
             {
                 NAME = request.Name,

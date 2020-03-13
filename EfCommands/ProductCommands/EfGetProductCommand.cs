@@ -19,6 +19,11 @@ namespace EfCommands.ProductCommands
         {
             var product = Context.PRODUCT.Find(request);
 
+            if (product == null)
+            {
+                return null;
+            }
+
             return new ProductDto
             {
                 ProductId = product.PRODUCT_ID,
